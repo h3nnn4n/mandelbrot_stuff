@@ -1,0 +1,3 @@
+#!/bin/bash
+
+icc -ipo -parallel -lgmp -Ofast -march=native -mtune=native -mfpmath=sse mandel.c -o mandel && ./mandel && feh mandel.ppm
