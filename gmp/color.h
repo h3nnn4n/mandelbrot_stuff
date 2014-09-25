@@ -83,7 +83,7 @@ _color getGrad2(double p){
 int populatePal(_color *pallete){
 	_color col;
 	int size,i,r,g,b;
-	FILE *pal=fopen("pal.ppm","rt");
+	FILE *pal=fopen("pal2.ppm","rt");
 	fscanf(pal,"%d\n",&size);
 	size=255;
 	
@@ -99,16 +99,17 @@ int populatePal(_color *pallete){
 	fclose(pal);
 }
 _color getPalMem(double p,_color *pal){
-	int i,size=256;
+	int i,size=255;
 	_color col;
-	memcpy(&col,&pal[((int)p)%size],sizeof(_color));
+	//~ memcpy(&col,&pal[((int)p)%size],sizeof(_color));
+	memcpy(&col,&pal[(int)(p*size)],sizeof(_color));
 	return col;
 }
 
 _color getPal(double p){
 	_color col;
 	int size,i,r,g,b;
-	FILE *pal=fopen("pal.ppm","rt");
+	FILE *pal=fopen("pal2.ppm","rt");
 	fscanf(pal,"%d\n",&size);
 	
 	p=p*size;
