@@ -80,7 +80,7 @@ _color getGrad2(double p){
 }
 
 
-int populatePal(_color *pallete){
+void populatePal(_color *pallete){
     _color col;
     int size,i,r,g,b;
     FILE *pal=fopen("pal2.ppm","rt");
@@ -98,8 +98,9 @@ int populatePal(_color *pallete){
     }
     fclose(pal);
 }
+
 _color getPalMem(double p,_color *pal){
-    int i,size=255;
+    int size=255;
     _color col;
     //~ memcpy(&col,&pal[((int)p)%size],sizeof(_color));
     memcpy(&col,&pal[(int)(p*size)],sizeof(_color));
@@ -110,9 +111,9 @@ _color getPal(double p){
     _color col;
     int size,i,r,g,b;
     FILE *pal=fopen("pal2.ppm","rt");
-    char limbo[256;
+    char limbo[256];
 
-    // Jumps the 3 uselles first lines.
+    // Jumps the 3 useless first lines.
     fgets(limbo,255,pal);
     fgets(limbo,255,pal);
     fgets(limbo,255,pal);
